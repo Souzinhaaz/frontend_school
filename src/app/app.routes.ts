@@ -12,10 +12,10 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    loadComponent: () => import('./features/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: 'register',
-    component: RegisterComponent
+    loadComponent: () => import('./features/register/register.component').then(m => m.RegisterComponent)
   }
 ];
