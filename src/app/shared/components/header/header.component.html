@@ -1,0 +1,33 @@
+<header class="bg-zinc-950 text-white fixed w-full">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <!-- Logo -->
+    <a href="#" class="text-2xl font-bold text-white">Sistema Gerenciamento de Escola</a>
+
+    <!-- Menu Desktop -->
+    <!-- <nav class="hidden md:flex gap-6">
+      <a routerLink="/" class="hover:text-gray-400 cursor-pointer">Início</a>
+      <a routerLink="/sobre" class="hover:text-gray-400 cursor-pointer">Sobre</a>
+      <a routerLink="/servicos" class="hover:text-gray-400 cursor-pointer">Serviços</a>
+      <a routerLink="/contato" class="hover:text-gray-400 cursor-pointer">Contato</a>
+    </nav> -->
+
+    <!-- Botão do Menu Mobile -->
+    <!-- <button
+      (click)="toggleMobileMenu()"
+      class="block md:hidden text-2xl focus:outline-none text-white"
+    >
+      &#9776;
+    </button> -->
+  </div>
+
+  <!-- Menu Mobile -->
+  <nav
+    [ngClass]="{ hidden: !isMobileMenuOpen }"
+    class="flex flex-col items-center md:hidden bg-gray-900"
+  >
+    <a routerLink="/" class="py-2 w-full text-center hover:bg-gray-800 text-white">Início</a>
+    <a routerLink="/sobre" class="py-2 w-full text-center hover:bg-gray-800 text-white">Sobre</a>
+    <a routerLink="/servicos" class="py-2 w-full text-center hover:bg-gray-800 text-white">Serviços</a>
+    <a routerLink="/contato" class="py-2 w-full text-center hover:bg-gray-800 text-white">Contato</a>
+  </nav>
+</header>
