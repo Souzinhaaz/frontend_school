@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   isMobileMenuOpen: boolean = false;
+  isUserLoggedIn: boolean = false;
+  authService = inject(AuthService);
+
+  ngOnInit() {
+    this.isUserLoggedIn = this.authService.obterLoginStatus();
+  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
