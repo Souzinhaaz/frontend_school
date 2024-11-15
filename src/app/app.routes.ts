@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './features/home/home.component';
 import { autorizadoGuard } from './_guard/autorizado.guard';
+import { LoginComponent } from './features/login/login.component';
+import { RegisterComponent } from './features/register/register.component';
 
 export const routes: Routes = [
   {
@@ -10,10 +12,10 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./features/login/login.component').then(m => m.LoginComponent)
+    component: LoginComponent
   },
   {
     path: 'register',
-    loadComponent: () => import('./features/register/register.component').then(m => m.RegisterComponent)
+    component: RegisterComponent
   }
 ];

@@ -3,10 +3,12 @@
     <a href="" class="text-2xl font-bold text-white">Sistema Gerenciamento de Escola</a>
 
     <nav *ngIf="isUserLoggedIn" class="hidden md:flex gap-6">
-      <a routerLink="/" class="hover:text-gray-400 cursor-pointer">Início</a>
-      <a routerLink="/sobre" class="hover:text-gray-400 cursor-pointer">Sobre</a>
-      <a routerLink="/servicos" class="hover:text-gray-400 cursor-pointer">Serviços</a>
-      <a routerLink="/contato" class="hover:text-gray-400 cursor-pointer">Contato</a>
+      <a [routerLink]="['']" class="hover:text-gray-400 cursor-pointer">Dashboard</a>
+      <a [routerLink]="['/usuarios']" class="hover:text-gray-400 cursor-pointer">Usuários</a>
+      <a [routerLink]="['/turmas']" class="hover:text-gray-400 cursor-pointer">Turmas</a>
+      <a [routerLink]="['/alunos']" class="hover:text-gray-400 cursor-pointer">Alunos</a>
+      <a [routerLink]="['/boletins']" class="hover:text-gray-400 cursor-pointer">Boletins</a>
+      <a (click)="sair()" class="hover:text-gray-400 text-red-600 cursor-pointer">Sair</a>
     </nav>
 
     <button
@@ -21,11 +23,12 @@
   <nav
     [ngClass]="{ hidden: !isMobileMenuOpen }"
     *ngIf="isUserLoggedIn"
-    class="flex flex-col items-center md:hidden bg-gray-900"
+    class="md:hidden bg-zinc-950 text-white flex flex-col items-center py-4"
   >
-    <a routerLink="/" class="py-2 w-full text-center hover:bg-gray-800 text-white">Início</a>
-    <a routerLink="/sobre" class="py-2 w-full text-center hover:bg-gray-800 text-white">Sobre</a>
-    <a routerLink="/servicos" class="py-2 w-full text-center hover:bg-gray-800 text-white">Serviços</a>
-    <a routerLink="/contato" class="py-2 w-full text-center hover:bg-gray-800 text-white">Contato</a>
+    <a [routerLink]="['']" class="py-2 w-full text-center hover:bg-gray-800 cursor-pointer">Dashboard</a>
+    <a [routerLink]="['/turmas']" class="py-2 w-full text-center hover:bg-gray-800 cursor-pointer">Turmas</a>
+    <a [routerLink]="['/alunos']" class="py-2 w-full text-center hover:bg-gray-800 cursor-pointer">Alunos</a>
+    <a [routerLink]="['/boletins']" class="py-2 w-full text-center hover:bg-gray-800 cursor-pointer">Boletins</a>
+    <a (click)="sair()" class="py-2 w-full text-center hover:bg-gray-800 text-red-600 cursor-pointer">Sair</a>
   </nav>
 </header>

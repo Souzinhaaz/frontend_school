@@ -1,0 +1,12 @@
+/* Centralizar o texto dos cards */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo dos cards */
+.grid {
+  width: 100%;
+}

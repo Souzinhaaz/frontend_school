@@ -1,3 +1,3 @@
-import { User } from "./user.interface";
+import { IAuth } from "./auth.interface";
 
-export type LoginPayload = Omit<User, 'id' | 'nome'>
+export type LoginPayload = Omit<IAuth, 'id' | 'nome'>

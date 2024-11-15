@@ -20,11 +20,11 @@ export class LoginComponent {
   form = new FormGroup({
     email: new FormControl<string>('', { 
       nonNullable: true, 
-      validators: Validators.required
+      validators: [Validators.email, Validators.required]
     }),
     senha: new FormControl<string>('', {
       nonNullable: true,
-      validators: Validators.required
+      validators: [Validators.required]
     })
   })
 

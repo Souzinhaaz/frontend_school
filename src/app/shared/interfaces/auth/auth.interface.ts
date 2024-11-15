@@ -1,4 +1,4 @@
-export interface User {
+export interface IAuth {
   id: number,
   nome: string,
   email: string,

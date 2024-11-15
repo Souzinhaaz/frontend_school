@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { User } from '../../interfaces/auth/user.interface';
+import { IAuth } from '../../interfaces/auth/auth.interface';
 import { LoginPayload } from '../../interfaces/auth/login-payload.interface';
 import { RegisterPayload } from '../../interfaces/auth/register-payload.interface';
 import { LoginResponse } from '../../interfaces/auth/login-response.interface';
@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   register(payload: RegisterPayload) {
-    return this.httpClient.post<User>('api/auth/register', payload);
+    return this.httpClient.post<IAuth>('api/auth/register', payload);
   }
 
   logoff() {

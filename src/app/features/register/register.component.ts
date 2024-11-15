@@ -19,15 +19,15 @@ export class RegisterComponent {
   form = new FormGroup({
     nome: new FormControl<string>('', {
       nonNullable: true,
-      validators: Validators.required
+      validators: [Validators.minLength(1), Validators.required]
     }),
     email: new FormControl<string>('', { 
       nonNullable: true, 
-      validators: Validators.required
+      validators: [Validators.email, Validators.required]
     }),
     senha: new FormControl<string>('', {
       nonNullable: true,
-      validators: Validators.required
+      validators: [Validators.required]
     })
   })
 
