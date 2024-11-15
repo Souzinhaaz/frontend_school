@@ -10,7 +10,7 @@ export const autorizadoGuard: CanActivateFn = (route, state) => {
   const usuarioEstaLogado = authService.obterLoginStatus();
 
   if (!usuarioEstaLogado) {
-    return router.parseUrl("/login")
+    return router.navigate(['/login'])
   }
 
   return true;
