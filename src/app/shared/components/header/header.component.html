@@ -2,17 +2,24 @@
   <div class="container mx-auto flex justify-between items-center p-4">
     <a href="" class="text-2xl font-bold text-white">Sistema Gerenciamento de Escola</a>
 
-    <nav *ngIf="isUserLoggedIn" class="hidden md:flex gap-6">
+    <nav *ngIf="authService.isLoggedIn$ | async; else loggedOutNav" class="hidden md:flex gap-6">
       <a [routerLink]="['']" class="hover:text-gray-400 cursor-pointer">Dashboard</a>
       <a [routerLink]="['/turmas']" class="hover:text-gray-400 cursor-pointer">Turmas</a>
       <a [routerLink]="['/alunos']" class="hover:text-gray-400 cursor-pointer">Alunos</a>
       <a [routerLink]="['/boletins']" class="hover:text-gray-400 cursor-pointer">Boletins</a>
-      <a (click)="sair()" class="hover:text-gray-400 text-red-600 cursor-pointer">Sair</a>
+      <a (click)="showExitModal()" class="hover:text-gray-400 text-red-600 cursor-pointer">Sair</a>
     </nav>
+
+    <ng-template #loggedOutNav>
+      <nav class="hidden md:flex gap-6">
+        <a [routerLink]="['/login']" class="hover:text-gray-400 cursor-pointer">Login</a>
+        <a [routerLink]="['/register']" class="hover:text-gray-400 cursor-pointer">Registrar</a>
+      </nav>
+    </ng-template>
 
     <button
       (click)="toggleMobileMenu()"
-      *ngIf="isUserLoggedIn"
+      *ngIf="authService.isLoggedIn$ | async"
       class="block md:hidden text-2xl focus:outline-none text-white"
     >
       &#9776;
@@ -21,13 +28,16 @@
 
   <nav
     [ngClass]="{ hidden: !isMobileMenuOpen }"
-    *ngIf="isUserLoggedIn"
+    *ngIf="authService.isLoggedIn$ | async"
     class="md:hidden bg-zinc-950 text-white flex flex-col items-center py-4"
   >
     <a [routerLink]="['']" class="py-2 w-full text-center hover:bg-gray-800 cursor-pointer">Dashboard</a>
     <a [routerLink]="['/turmas']" class="py-2 w-full text-center hover:bg-gray-800 cursor-pointer">Turmas</a>
     <a [routerLink]="['/alunos']" class="py-2 w-full text-center hover:bg-gray-800 cursor-pointer">Alunos</a>
     <a [routerLink]="['/boletins']" class="py-2 w-full text-center hover:bg-gray-800 cursor-pointer">Boletins</a>
-    <a (click)="sair()" class="py-2 w-full text-center hover:bg-gray-800 text-red-600 cursor-pointer">Sair</a>
+    <a (click)="showExitModal()" class="py-2 w-full text-center hover:bg-gray-800 text-red-600 cursor-pointer">Sair</a>
   </nav>
 </header>
+
+<app-modal #exitModal (confirm)="onExitConfirm()">
+</app-modal>

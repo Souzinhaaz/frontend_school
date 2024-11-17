@@ -9,12 +9,17 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './modal.component.css'
 })
 export class ModalComponent {
+
   isVisible = false;
+  title: string = '';
+  content: string = '';
 
   @Output() confirm = new EventEmitter<void>();
   @Output() cancel = new EventEmitter<void>();
 
-  showModal() {
+  showModal(title: string, content: string) {
+    this.title = title;
+    this.content = content;
     this.isVisible = true;
   }
 

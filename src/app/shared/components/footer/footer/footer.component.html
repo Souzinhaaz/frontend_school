@@ -7,12 +7,19 @@
         <p class="text-sm text-gray-400">© 2024 Todos os direitos reservados.</p>
       </div>
 
-      <div class="flex gap-6 mb-4 md:mb-0">
-        <a routerLink="/" class="hover:text-gray-400 cursor-pointer">Dashboard</a>
-        <a routerLink="/sobre" class="hover:text-gray-400 cursor-pointer">Turmas</a>
-        <a routerLink="/servicos" class="hover:text-gray-400 cursor-pointer">Alunos</a>
-        <a routerLink="/contato" class="hover:text-gray-400 cursor-pointer">Boletins</a>
+      <div *ngIf="authService.isLoggedIn$ | async; else loggedOutFooter" class="flex gap-6 mb-4 md:mb-0">
+        <a [routerLink]="['/']" class="hover:text-gray-400 cursor-pointer">Dashboard</a>
+        <a [routerLink]="['/sobre']" class="hover:text-gray-400 cursor-pointer">Turmas</a>
+        <a [routerLink]="['/servicos']" class="hover:text-gray-400 cursor-pointer">Alunos</a>
+        <a [routerLink]="['/contato']" class="hover:text-gray-400 cursor-pointer">Boletins</a>
       </div>
+
+      <ng-template #loggedOutFooter>
+        <div class="flex gap-6 mb-4 md:mb-0">
+          <a [routerLink]="['/login']" class="hover:text-gray-400 cursor-pointer">Login</a>
+          <a [routerLink]="['/register']" class="hover:text-gray-400 cursor-pointer">Registrar</a>
+        </div>
+      </ng-template>
 
       <div class="flex gap-4">
         <a href="https://www.linkedin.com/in/souzinhaaz/" target="_blank" class="hover:text-blue-400">
