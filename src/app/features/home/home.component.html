@@ -1,7 +1,7 @@
-<div class="container mx-auto px-4 py-8">
+<div class="container mx-auto p-4">
   <h2 class="text-3xl font-bold text-center text-white mb-8">Dashboard</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="bg-green-600 text-white rounded-lg p-6 shadow-lg hover:bg-green-700 cursor-pointer flex flex-col justify-between">
+    <div class="bg-green-600 text-white rounded-lg p-6 shadow-lg hover:bg-green-700 flex flex-col justify-between">
       <div>
         <h3 class="text-2xl font-bold mb-4">Turmas</h3>
         <p class="text-lg">Gerencie as turmas da escola.</p>
@@ -9,13 +9,13 @@
       <button
           type="submit"
           [routerLink]="['/turmas']"
-          class="mt-4 py-2 sm:py-3 bg-green-800 text-white rounded-lg hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-900"
+          class="mt-4 py-2 sm:py-3 bg-green-800 cursor-pointer text-white rounded-lg hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-900"
         >
           Ver Mais
       </button>
     </div>
 
-    <div class="bg-yellow-600 text-white rounded-lg p-6 shadow-lg hover:bg-yellow-700 cursor-pointer flex flex-col justify-between">
+    <div class="bg-yellow-600 text-white rounded-lg p-6 shadow-lg hover:bg-yellow-700 flex flex-col justify-between">
       <div>
         <h3 class="text-2xl font-bold mb-4">Alunos</h3>
         <p class="text-lg">Gerencie os alunos matriculados.</p>
@@ -23,13 +23,13 @@
       <button
           type="submit"
           [routerLink]="['/alunos']"
-          class="mt-4 py-2 sm:py-3 bg-yellow-800 text-white rounded-lg hover:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-900"
+          class="mt-4 py-2 sm:py-3 cursor-pointer bg-yellow-800 text-white rounded-lg hover:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-900"
         >
           Ver Mais
       </button>
     </div>
 
-    <div class="bg-blue-600 text-white rounded-lg p-6 shadow-lg hover:bg-blue-700 cursor-pointer flex flex-col justify-between">
+    <div class="bg-blue-600 text-white rounded-lg p-6 shadow-lg hover:bg-blue-700 flex flex-col justify-between">
       <div>
         <h3 class="text-2xl font-bold mb-4">Boletins</h3>
         <p class="text-lg">Acesse os boletins dos alunos.</p>
@@ -37,7 +37,7 @@
       <button
           type="submit"
           [routerLink]="['/boletins']"
-          class="mt-4 py-2 sm:py-3 bg-blue-800 text-white rounded-lg hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-900"
+          class="mt-4 py-2 sm:py-3 cursor-pointer bg-blue-800 text-white rounded-lg hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-900"
         >
           Ver Mais
       </button>

@@ -1,1 +1,48 @@
-<p>boletins works!</p>
+<div class="container mx-auto p-4">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl text-white font-bold text-center">Lista de Boletins</h1>
+    <button
+      class="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-800"
+    >
+      Criar Novo Boletim
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="text-center text-white">
+    <p>Carregando boletins...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="text-red-600">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <ul *ngIf="!isLoading && boletins.length > 0" class="list-none space-y-4">
+    <li *ngFor="let boletimItem of boletins" class="p-4 border rounded-md bg-gray-800 text-white flex justify-between items-center">
+      <div>
+        <h2 class="text-xl font-semibold">{{ boletimItem.aprovado ? "Aprovado" : "Reprovado" }}</h2>
+        <p><strong>Aluno:</strong> {{ boletimItem.aluno.nome }}</p>
+        <p><strong>Turma:</strong> {{ boletimItem.aluno.turma.nome }}</p>
+        <p><strong>Notas:</strong> [ {{ boletimItem.nota1 }}, {{boletimItem.nota2}}, {{boletimItem.nota3}}, {{boletimItem.nota4}} ]</p>
+        <p><strong>Media:</strong> {{ boletimItem.media }}</p>
+        <p><strong>Quantidade de Faltas:</strong> {{ boletimItem.quantidadeFaltas }}</p>
+        
+      </div>
+      <div class="flex space-x-2">
+        <button
+          class="py-2 px-4 bg-yellow-600 text-white rounded hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-800"
+        >
+          Atualizar
+        </button>
+        <button
+          class="py-2 px-4 bg-red-600 text-white rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-800"
+        >
+          Excluir
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <div *ngIf="!isLoading && boletins.length === 0" class="text-center text-white">
+    <p>Nenhum Boletim encontrado.</p>
+  </div>
+</div>
